@@ -1,4 +1,4 @@
 # OnliineFoodOrderingSystem
 
 
-**  **********Project udnder deelopement************** **
+**  **********Project under deelopement************** **
