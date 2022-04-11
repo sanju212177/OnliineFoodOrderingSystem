@@ -15,7 +15,7 @@ public class AddressDto {
     @NotBlank(message = "City can't be empty")
     @NotNull(message = "City can't be empty")
     private String city;
-    public String getStreet() {
+    public String getStreet(){
         return street;
     }
     public void setStreet(String street) {
@@ -30,5 +30,5 @@ public class AddressDto {
 
     public AddressDto() {
     }
-
+  
 }

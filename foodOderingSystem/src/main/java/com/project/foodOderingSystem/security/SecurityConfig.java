@@ -9,7 +9,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import com.project.foodOderingSystem.entity.User;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
@@ -22,7 +21,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		    }
 	 @Override
 		protected void configure(HttpSecurity http) throws Exception {
-			http.authorizeRequests().antMatchers("/customers/create").hasRole("ADMIN").anyRequest().authenticated().and()
+			http.authorizeRequests().antMatchers("users/signUp").hasRole("ADMIN").anyRequest().authenticated().and()
 					.httpBasic();
 			http.csrf().disable();
 		}

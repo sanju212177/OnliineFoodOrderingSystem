@@ -20,7 +20,7 @@ public class CustomerDto {
     private String customerName;
     @NotBlank(message = "Email cannot be blank")
     @Email(message = "Enter a valid email address")
-    private String CustomerEmail;
+    private String customerEmail;
     @NotNull(message = "Phone number cannot be blank")
     @NotBlank(message = "Phone number cannot be blank")
     @Size(min=10,max=10,message = "Phone number should have 10 digits")
@@ -33,5 +33,46 @@ public class CustomerDto {
     public CustomerDto(){
 
     }
+
+	public int getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
+	}
+
+	public String getCustomerName() {
+		return customerName;
+	}
+
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+
+	public String getCustomerEmail() {
+		return customerEmail;
+	}
+
+	public void setCustomerEmail(String customerEmail) {
+		this.customerEmail = customerEmail;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+    
 
 }
