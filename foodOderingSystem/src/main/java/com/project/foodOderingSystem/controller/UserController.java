@@ -18,6 +18,7 @@ import com.project.foodOderingSystem.service.UserService;
 @RestController
 @RequestMapping(value = "user")
 public class UserController {
+	
 	@Autowired
 	private UserService userService;
 	@PostMapping("/signUp")
