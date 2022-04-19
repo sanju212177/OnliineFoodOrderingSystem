@@ -37,11 +37,15 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter{
 		.antMatchers("/token").permitAll()
 		.antMatchers("/user/**").hasRole("USER")
 		.antMatchers("/admin/**").hasRole("ADMIN")
-		.antMatchers("/food").permitAll()
+		.antMatchers("/items/**").permitAll()
+		.antMatchers("/orders/**").permitAll()
+		.antMatchers("/images/**").permitAll()
 		.anyRequest().authenticated()
 		.and()
 		.sessionManagement()
 		.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+		
+		http.cors().disable();
 	
 	    http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 	}
