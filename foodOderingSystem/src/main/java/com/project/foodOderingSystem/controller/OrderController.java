@@ -3,12 +3,18 @@ package com.project.foodOderingSystem.controller;
 import com.project.foodOderingSystem.dto.OrderDto;
 import com.project.foodOderingSystem.entity.Order;
 import com.project.foodOderingSystem.service.OrderService;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 @CrossOrigin("*")
@@ -21,6 +27,12 @@ public class OrderController {
 
     @PostMapping("/addOrder")
     public ResponseEntity<String> createOrder(@RequestBody OrderDto orderDto){
+    	System.out.println(orderDto);
+    	orderDto.setStartTime(LocalDateTime.now());
+    	  LocalDateTime dateTime = LocalDateTime.now().plus(Duration.of(30, ChronoUnit.MINUTES));
+    	  orderDto.setEndTime(dateTime);
+        orderDto.setStatus("pending");
+        orderDto.setDate(LocalDate.now());
         orderService.addOrder(orderDto);
         return new ResponseEntity<String>("Order added.", HttpStatus.CREATED);
     }

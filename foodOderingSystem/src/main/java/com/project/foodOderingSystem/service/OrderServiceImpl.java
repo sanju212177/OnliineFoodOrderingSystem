@@ -50,23 +50,21 @@ public class OrderServiceImpl  implements OrderService{
         order = orderRepository.findById(id).orElseThrow(()->new OrderNotFoundException("Order with this id="+id+" is not found"));
         if(orderDto.getCustomerId() != 0)
         order.setCustomerId(orderDto.getCustomerId());
+       
         if(orderDto.getStartTime()!=null)
         order.setStartTime(orderDto.getStartTime());
+      
         if(orderDto.getEndTime()!=null)
         order.setEndTime(orderDto.getEndTime());
-        if(orderDto.getStatus()!=null)
-        	
+     
+        
+        if(orderDto.getStatus()!=null)	
         order.setStatus(orderDto.getStatus());
         
-        
-        if(orderDto.getFoodItemIdList()!=null)
-        order.setFoodItemIdList(orderDto.getFoodItemIdList());
-
-        double price=0;        
-        if(orderDto.getFoodItemIdList()!=null)
-        order.setAmount(orderDto.getAmount());
+    
         if(orderDto.getAmount()!= 0.0)
-        order.setAmount(price);
+        order.setAmount(orderDto.getAmount());
+        
         if(orderDto.getDate()!=null)
         order.setDate(orderDto.getDate());
 

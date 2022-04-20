@@ -31,7 +31,7 @@ public class Order {
 
     private LocalDateTime endTime;
     
-    private List<Integer> foodItemIdList;
+    
     
     private int customerId;
 
@@ -91,15 +91,13 @@ public class Order {
 		this.customerId = customerId;
 	}
 
-	public List<Integer> getFoodItemIdList() {
-		return foodItemIdList;
 	}
 
-	public void setFoodItemIdList(List<Integer> foodItemIdList) {
-		this.foodItemIdList = foodItemIdList;
-	}
+
+
+//order - fooditems - customer
+
+
+
+
 	
-    
-    
-    
-}

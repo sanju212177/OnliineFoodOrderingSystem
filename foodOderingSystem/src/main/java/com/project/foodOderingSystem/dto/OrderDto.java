@@ -3,6 +3,7 @@ package com.project.foodOderingSystem.dto;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 
 import com.project.foodOderingSystem.entity.Customer;
 import com.project.foodOderingSystem.entity.FoodItems;
@@ -26,7 +27,6 @@ public class OrderDto {
 
     private LocalDateTime endTime;
     
-    private List<Integer> foodItemIdList;
     
     private int customerId;
 
@@ -78,13 +78,31 @@ public class OrderDto {
 		this.customerId = customerId;
 	}
 
-	public List<Integer> getFoodItemIdList() {
-		return foodItemIdList;
+	@Override
+	public int hashCode() {
+		return Objects.hash(amount, customerId, date, endTime, startTime, status);
 	}
 
-	public void setFoodItemIdList(List<Integer> foodItemIdList) {
-		this.foodItemIdList = foodItemIdList;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		OrderDto other = (OrderDto) obj;
+		return Double.doubleToLongBits(amount) == Double.doubleToLongBits(other.amount)
+				&& customerId == other.customerId && Objects.equals(date, other.date)
+				&& Objects.equals(endTime, other.endTime) && Objects.equals(startTime, other.startTime)
+				&& Objects.equals(status, other.status);
 	}
-    
+
+	@Override
+	public String toString() {
+		return "OrderDto [status=" + status + ", date=" + date + ", amount=" + amount + ", startTime=" + startTime
+				+ ", endTime=" + endTime + ", customerId=" + customerId + "]";
+	}
+
     
 }
