@@ -27,7 +27,6 @@ public class OrderController {
 
     @PostMapping("/addOrder")
     public ResponseEntity<String> createOrder(@RequestBody OrderDto orderDto){
-    	System.out.println(orderDto);
     	orderDto.setStartTime(LocalDateTime.now());
     	  LocalDateTime dateTime = LocalDateTime.now().plus(Duration.of(30, ChronoUnit.MINUTES));
     	  orderDto.setEndTime(dateTime);

@@ -12,4 +12,6 @@ public interface FoodItemsService {
     public FoodItems updateFoodItem(FoodItemsDto foodItemsDto, int id);
     public List<FoodItems> getFoodItemsByName(String name);
     public FoodItems getFoodItemById(int id);
+	public void updateQuantity(FoodItemsDto foodItemsDto, int id);
+	public Integer getQuantity(int id);
 }

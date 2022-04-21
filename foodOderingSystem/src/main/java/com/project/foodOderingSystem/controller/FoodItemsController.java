@@ -74,8 +74,12 @@ public class FoodItemsController {
     public ResponseEntity<List<FoodItems>> getAllFoodItems(){
     return new ResponseEntity<>(foodItemsService.getAllFoodItems(),HttpStatus.ACCEPTED);
     }
+    @GetMapping("/getQuantity/{id}")
+    public ResponseEntity<Integer> getQuantity(@PathVariable("id") int id){
+    	return new ResponseEntity<>(foodItemsService.getQuantity(id),HttpStatus.OK);
+    }
 
-    @DeleteMapping("/delete/food/item/{id}")
+    @DeleteMapping("/deleteFoodItem/{id}")
     public ResponseEntity<String> deleteFoodItem(@PathVariable("id") int id){
         foodItemsService.deleteFoodItem(id);
         return new ResponseEntity<>("Item Deleted.",HttpStatus.OK);
@@ -85,6 +89,12 @@ public class FoodItemsController {
     public ResponseEntity<String> updateFoodItem(@RequestBody FoodItemsDto foodItemsDto, @PathVariable("id") int id){
         foodItemsService.updateFoodItem(foodItemsDto,id);
         return new ResponseEntity<>("Item Updated.",HttpStatus.ACCEPTED);
+    }
+    @PatchMapping("/updateQuantity/{id}")
+    public ResponseEntity<String> updateQuantity(@RequestBody FoodItemsDto foodItemsDto, @PathVariable("id") int id){
+    	System.out.println(foodItemsDto);
+    	foodItemsService.updateQuantity(foodItemsDto,id);
+    	return new ResponseEntity<>("Item Updated.",HttpStatus.ACCEPTED);
     }
 
     @GetMapping("/get/byName/{name}")

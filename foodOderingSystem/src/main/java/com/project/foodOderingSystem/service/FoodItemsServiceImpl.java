@@ -67,5 +67,20 @@ public class FoodItemsServiceImpl implements FoodItemsService{
         return foodItems;
     }
 
+	@Override
+	public void updateQuantity(FoodItemsDto foodItemsDto, int id) {
+        FoodItems foodItems=foodItemsRepository.findById(id).orElseThrow(()->new FoodItemNotFoundException("Food Item with id="+id+" is not found"));
+        foodItems.setQuantity(foodItemsDto.getQuantity());
+        
+        foodItemsRepository.save(foodItems);
+		
+	}
+
+	@Override
+	public Integer getQuantity(int id) {
+		FoodItems foodItems=foodItemsRepository.findById(id).orElseThrow(()->new FoodItemNotFoundException("Food Item with id="+id+" is not found"));
+		return foodItems.getQuantity();
+	}
+
 }
 
