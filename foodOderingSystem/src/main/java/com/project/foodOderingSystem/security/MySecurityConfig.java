@@ -49,7 +49,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter{
 		.sessionManagement()
 		.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		
-		http.cors().disable();
+//		http.cors().disable();
 	
 	    http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 	}
@@ -62,4 +62,6 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter{
 	public PasswordEncoder passwordEncoder() {
 		return  NoOpPasswordEncoder.getInstance();
 	}
+	
+
 }

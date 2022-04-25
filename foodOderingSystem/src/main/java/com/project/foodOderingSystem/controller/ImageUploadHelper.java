@@ -21,7 +21,7 @@ public class ImageUploadHelper {
 		public final String UPLOAD_DIR ="C:\\Users\\negia\\git\\foodOderingSystem\\foodOderingSystem\\src\\main\\resources\\static\\images";
 	
 	//making it dyamic 
-   //	public final String UPLOAD_DIR = new ClassPathResource("src/main/resources/static/images/").getFile().getAbsolutePath();
+//   	public final String UPLOAD_DIR = new ClassPathResource("src/main/resources/static/images/").getFile().getAbsolutePath();
     public boolean uploadFile(MultipartFile multipartFile) {
     	boolean f = false;
     	try {

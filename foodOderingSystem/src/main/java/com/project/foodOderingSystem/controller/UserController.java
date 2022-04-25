@@ -27,6 +27,9 @@ public class UserController {
 	private UserService userService;
 	@PostMapping("/signUp")
     public ResponseEntity<String> signUpUser(@Valid @RequestBody UserDto userDto){
+		if(userService.checkUser(userDto)==true)
+			return new ResponseEntity<String>("Username already exist!!!",HttpStatus.NOT_ACCEPTABLE);
+	
 		return new ResponseEntity<String>("created" + String.valueOf(userService.signUpUser(userDto)) ,HttpStatus.CREATED);
     }     
 	

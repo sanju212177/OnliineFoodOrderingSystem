@@ -17,5 +17,6 @@ public interface UserService {
 	Customer signInUser(UserDto userDto);
 //	Customer getCustomer(Integer userId);
 	User loadUserByUsername(String userName);
+	boolean checkUser(@Valid UserDto userDto);
 	
 }

@@ -2,7 +2,10 @@ package com.project.foodOderingSystem.service;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.project.foodOderingSystem.entity.Address;
@@ -19,6 +22,8 @@ import lombok.Setter;
 public class UserServiceImpl implements UserService {
 	@Autowired
     private UserRepository userRepository;
+//	@Autowired
+//	private PasswordEncoder passwordEncoder;
 	@Override
 	public Integer signUpUser( UserDto userDto) {
 		User user = new User();
@@ -53,6 +58,15 @@ public class UserServiceImpl implements UserService {
 	public User loadUserByUsername(String userName) {
 		
 		return userRepository.loadUserByUsername(userName);
+	}
+	@Override
+	public boolean checkUser(@Valid UserDto userDto) {
+		// TODO Auto-generated method stub
+		List<User> userList = userRepository.findAll();
+		for(User i : userList) {
+			if(i.getUserName().equals(userDto.getUserName()))return true;
+		}
+		return false;
 	}
 
 }
