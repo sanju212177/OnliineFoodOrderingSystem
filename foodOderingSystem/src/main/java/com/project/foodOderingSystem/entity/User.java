@@ -31,7 +31,7 @@ public class User {
     private Customer customer;
     
     public User(){
-    	role = "USER";
+    	role = "ROLE_USER";
     }
 
     @Override

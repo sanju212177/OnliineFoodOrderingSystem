@@ -49,5 +49,10 @@ public class UserServiceImpl implements UserService {
 		}
 		return null;
 	}
+	@Override
+	public User loadUserByUsername(String userName) {
+		
+		return userRepository.loadUserByUsername(userName);
+	}
 
 }

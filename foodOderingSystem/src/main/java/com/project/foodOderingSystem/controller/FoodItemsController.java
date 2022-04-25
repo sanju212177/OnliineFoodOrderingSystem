@@ -25,7 +25,7 @@ import java.util.List;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/items" )
+@RequestMapping
 public class FoodItemsController {
 
     @Autowired
@@ -36,7 +36,7 @@ public class FoodItemsController {
     
      
     
-    @PostMapping("/addItem")
+    @PostMapping("/items/addItem")
     public ResponseEntity<String> addFoodItem(@RequestParam("foodItemsDto") String jsonStringFoodDto , @RequestParam("file") MultipartFile  file)throws IOException {
 //        foodItemsDto.setImage(file.getBytes());
 //        foodItemsService.addFoodItem(foodItemsDto);
@@ -64,40 +64,40 @@ public class FoodItemsController {
     	return new ResponseEntity<>("Something went wrong!!",HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    @GetMapping("/imageDisplay/{id}")
+    @GetMapping("/items/imageDisplay/{id}")
     public String showImage(@RequestParam("id") Integer id) throws ServletException, IOException {
         FoodItems foodItems= foodItemsService.getFoodItemById(id);
 		return ServletUriComponentsBuilder.fromCurrentContextPath().path("/images/").path(foodItems.getImage()).toUriString();
     }
 
-    @GetMapping("/getAllItems")
+    @GetMapping("/public_items/getAllItems")
     public ResponseEntity<List<FoodItems>> getAllFoodItems(){
     return new ResponseEntity<>(foodItemsService.getAllFoodItems(),HttpStatus.ACCEPTED);
     }
-    @GetMapping("/getQuantity/{id}")
+    @GetMapping("/items/getQuantity/{id}")
     public ResponseEntity<Integer> getQuantity(@PathVariable("id") int id){
     	return new ResponseEntity<>(foodItemsService.getQuantity(id),HttpStatus.OK);
     }
 
-    @DeleteMapping("/deleteFoodItem/{id}")
+    @DeleteMapping("/items/deleteFoodItem/{id}")
     public ResponseEntity<String> deleteFoodItem(@PathVariable("id") int id){
         foodItemsService.deleteFoodItem(id);
         return new ResponseEntity<>("Item Deleted.",HttpStatus.OK);
     }
 
-    @PutMapping("/update/food/item/{id}")
+    @PutMapping("/items/update/food/item/{id}")
     public ResponseEntity<String> updateFoodItem(@RequestBody FoodItemsDto foodItemsDto, @PathVariable("id") int id){
         foodItemsService.updateFoodItem(foodItemsDto,id);
         return new ResponseEntity<>("Item Updated.",HttpStatus.ACCEPTED);
     }
-    @PatchMapping("/updateQuantity/{id}")
+    @PatchMapping("/items/updateQuantity/{id}")
     public ResponseEntity<String> updateQuantity(@RequestBody FoodItemsDto foodItemsDto, @PathVariable("id") int id){
     	System.out.println(foodItemsDto);
     	foodItemsService.updateQuantity(foodItemsDto,id);
     	return new ResponseEntity<>("Item Updated.",HttpStatus.ACCEPTED);
     }
 
-    @GetMapping("/get/byName/{name}")
+    @GetMapping("/items/get/byName/{name}")
     public ResponseEntity<List<FoodItems>> getFoodItemsByName(@PathVariable("name") String name){
         return new ResponseEntity<>(foodItemsService.getFoodItemsByName(name),HttpStatus.OK);
     }

@@ -15,7 +15,7 @@ public interface OrderService {
     public Order getOrderById(int id);
     public Order updateOrder(OrderDto orderDto,int id);
     public void cancelOrder(int id);
-
+    public List<Order> getOrderByCustomerId(int customerId);
     //acceptOrder
     //cancelOrder
 }
