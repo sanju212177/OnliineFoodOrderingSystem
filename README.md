@@ -1,4 +1,2 @@
 # OnliineFoodOrderingSystem
 
-
-**  **********Project under deployment**************** **
