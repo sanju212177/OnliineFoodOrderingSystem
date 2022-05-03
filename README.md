@@ -2,7 +2,7 @@
 
 
 Front end :
-https://github.com/ankit-1801/foodOrderingFrontEnd
+https://github.com/sanju212177/foodOrderingFrontEnd
 
 This project was made by a team of 5 people :
 1. Sanjay Singh Gusain
