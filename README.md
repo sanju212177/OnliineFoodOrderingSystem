@@ -12,4 +12,3 @@ This project was made by a team of 5 people :
 3. Varun kiroriwal
 4. Gaurav Rana
 5. Rishita
-6.
